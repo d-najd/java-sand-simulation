@@ -14,10 +14,10 @@ A starter template for OpenGL projects with the Java programming language.
 ---
 
 ```
-$ jpackage --input ./ --main-class Main --main-jar java-opengl-minimal-1.0.0.jar
+$ jpackage --input ./ --main-class Main.MainApp --main-jar java-opengl-minimal-1.0.0.jar
 ```
 
 [1]:https://jdk.java.net/17/
 [2]:https://maven.apache.org
 [3]:https://www.lwjgl.org/
-[4]:https://wixtoolset.org/ 
+[4]:https://wixtoolset.org/
