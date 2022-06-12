@@ -1,8 +1,10 @@
 package renderer;
 
+import Main.MainApp;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.system.MemoryUtil;
+import static org.lwjgl.opengl.GL11.*;
 
 public class Window {
 
@@ -25,6 +27,18 @@ public class Window {
 		GLFW.glfwSwapInterval(1);
 		GLFW.glfwShowWindow(windowID);
 		GL.createCapabilities();
+
+		/*
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		glOrtho(0, MainApp.width, 0, MainApp.height, -1, 1);
+		glMatrixMode(GL_MODELVIEW);
+
+		glClearColor(0, 0, 0, 1);
+
+		glDisable(GL_DEPTH_TEST);
+
+		 */
 	}
 
 	public void updateWindow(){
