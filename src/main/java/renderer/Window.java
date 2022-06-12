@@ -28,7 +28,9 @@ public class Window {
 		GLFW.glfwShowWindow(windowID);
 		GL.createCapabilities();
 
-		/*
+
+		//makes it so that rendering n stuff is IN PIXELS
+
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		glOrtho(0, MainApp.width, 0, MainApp.height, -1, 1);
@@ -37,8 +39,6 @@ public class Window {
 		glClearColor(0, 0, 0, 1);
 
 		glDisable(GL_DEPTH_TEST);
-
-		 */
 	}
 
 	public void updateWindow(){
