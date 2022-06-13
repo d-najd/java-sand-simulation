@@ -1,13 +1,16 @@
 package Main;
 
-import models.SquareFactory;
+import models.squares.Sand;
+import models.squares.SquareFactory;
 import org.lwjgl.opengl.GL11;
 import renderer.SquareRenderer;
 import renderer.Window;
 
 public class MainApp {
-	public static int width = 512, height = 512;
 	public static int squareSize = 15; //size of all the squares in the scene in pixels
+	public static int squaresFitX = 35, squaresFitY = 35; //how many squares we want to be able to fit
+	public static int width = squaresFitX * squareSize, height = squaresFitY * squareSize;
+
 
 	public static void main(String[] args) {
 		Window window = new Window();
@@ -15,8 +18,11 @@ public class MainApp {
 
 		SquareRenderer squareRenderer = SquareRenderer.getInstance();
 		SquareFactory squareFactory = new SquareFactory();
-		squareFactory.makeSquare("sand", 1 * squareSize, 1 * squareSize);
-		squareFactory.makeSquare("wall", 3 * squareSize, 1 * squareSize);
+		squareFactory.makeMultiple("wall", 0, 0, squaresFitX, 1);
+		squareFactory.makeSquare("wall", 5, 2);
+		squareFactory.makeSquare("sand", 5, 20);
+		Sand test = (Sand) squareFactory.makeSquare("sand", 5, 50);
+		test.setG(50);
 
 		while(!window.shouldClose()){
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);

@@ -33,6 +33,10 @@ public class SquareRenderer implements RendererInterface{
 		}
 	}
 
+	public ArrayList<Square> getSquares(){
+		return squares;
+	}
+
 	public void render(){
 		double converter = 0.00392156862745098; //used for turning 255 color into a value to 0-1f
 		for(Square square : squares)

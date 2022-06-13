@@ -1,17 +1,26 @@
 package models.squares;
 
+import CustomStuff.Pair;
+
 import java.awt.*;
 
 abstract public class Square {
 	int xPos, yPos; //how many pixels off
 	Color color;
+	SquarePhysics physics = null;
 
 	public Square(int xPos, int yPos){
 		this.xPos = xPos;
 		this.yPos = yPos;
 	}
 
-	abstract public void update();
+	public void update(){
+		if (physics != null) {
+			Pair pair = physics.updateGravity(xPos, yPos);
+			this.xPos = (int) pair.getVal1();
+			this.yPos = (int) pair.getVal2();
+		}
+	};
 
 	public int getxPos() {
 		return xPos;

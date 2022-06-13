@@ -27,11 +27,23 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+			<dependency>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx</artifactId>
+				<version>11</version>
+				<type>pom</type>
+			</dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx</artifactId>
+			<version>11</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
             <groupId>org.lwjgl</groupId>
             <artifactId>lwjgl</artifactId>
         </dependency>
