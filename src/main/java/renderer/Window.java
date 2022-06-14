@@ -24,7 +24,7 @@ public class Window {
 		}
 
 		GLFW.glfwMakeContextCurrent(windowID);
-		GLFW.glfwSwapInterval(1);
+		GLFW.glfwSwapInterval(1); //sets the window framerate to the refresh rate of the monitor
 		GLFW.glfwShowWindow(windowID);
 		GL.createCapabilities();
 
