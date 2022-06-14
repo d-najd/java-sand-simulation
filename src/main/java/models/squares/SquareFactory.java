@@ -60,7 +60,6 @@ public class SquareFactory {
 			System.out.println("$Off1 should be smaller than $Off2");
 			return null;
 		}
-
 		ArrayList<Square> returnList = new ArrayList<>();
 
 		for(int x = xOff1; x < xOff2; x++){
