@@ -12,13 +12,30 @@ import java.util.Optional;
 public class SquarePhysics {
 	private final float gravity; //now many frames till we update the gravity
 	private float curGravityFrame;
+	public static int squareSize;
 	public SquarePhysics(float gravity){
 		this.gravity = gravity;
 	}
 
-	public Pair updateGravity(int x, int y){
-		int squareSize = MainApp.squareSize;
+	public Pair sandGravity(int x, int y){
+		Pair temp = updateGravity(x, y);
+		//checking if we can move sand down
+		if ((int) temp.getVal2() != y){ //x doesn't move
+			return temp;
+		}
+		//checking if we can move sand left
+		Pair temp1 = updateGravity(x - squareSize, y);
+		if ((int) temp1.getVal1() != x - squareSize){ //x and y both move, so I can just check 1 of them
+			return temp1;
+		}
+		temp1 = updateGravity(x + squareSize, y);
+		if ((int) temp1.getVal1() != x + squareSize){
+			return temp1;
+		}
+		return temp;
+	}
 
+	public Pair updateGravity(int x, int y){
 		if (curGravityFrame == squareSize){
 			ArrayList<Square> positions = new ArrayList<>(SquareRenderer.getInstance().getSquares());
 			curGravityFrame = 0;
@@ -52,7 +69,7 @@ public class SquarePhysics {
 	 * @param x y value on the bottom left
 	 */
 	public static boolean advancedCheckX(Square o, int x){
-		return o.xPos < x && (o.xPos + MainApp.squareSize) >= x;
+		return o.xPos < x && (o.xPos + squareSize) >= x;
 	}
 
 	/**
@@ -61,7 +78,7 @@ public class SquarePhysics {
 	 * @param y the y value on the bottom left
 	 */
 	public static boolean advancedCheckY(Square o, int y){
-		return o.yPos < y && (o.yPos + MainApp.squareSize) >= y;
+		return o.yPos < y && (o.yPos + squareSize) >= y;
 	}
 
 	/**

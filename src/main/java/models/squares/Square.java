@@ -16,7 +16,7 @@ abstract public class Square {
 
 	public void update(){
 		if (physics != null) {
-			Pair pair = physics.updateGravity(xPos, yPos);
+			Pair pair = physics.sandGravity(xPos, yPos);
 			this.xPos = (int) pair.getVal1();
 			this.yPos = (int) pair.getVal2();
 		}

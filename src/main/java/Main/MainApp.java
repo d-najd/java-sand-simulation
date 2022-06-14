@@ -2,6 +2,7 @@ package Main;
 
 import models.squares.Sand;
 import models.squares.SquareFactory;
+import models.squares.SquarePhysics;
 import org.lwjgl.opengl.GL11;
 import renderer.SquareRenderer;
 import renderer.Window;
@@ -19,14 +20,13 @@ public class MainApp {
 		Window window = new Window();
 		window.createWindow(width, height, "hello");
 
+		setup();
+
 		SquareRenderer squareRenderer = SquareRenderer.getInstance();
 		SquareFactory squareFactory = new SquareFactory();
 		squareFactory.makeMultiple("wall", 0, 0, squaresFitX, 1);
 		squareFactory.makeSquare("wall", 5, 3);
 		squareFactory.makeSquare("sand", 5, 10);
-		//Sand test = (Sand) squareFactory.makeSquare("sand", 5, 20);
-		//test.setG(.0000000001f);
-		//test.setColor(new Color(0, 0, 255));
 
 		while(!window.shouldClose()){
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
@@ -41,5 +41,9 @@ public class MainApp {
 		}
 
 		window.closeWindow();
+	}
+
+	private static void setup(){
+		SquarePhysics.squareSize = squareSize;
 	}
 }
